@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 2,
+  "publicationOrigin": "https://pong22-mjzz85rs.manus.game",
+  "title": "Pong 22#$",
+  "description": "A Persian 2D Pong game with mouse and arrow-key controls, computer opponent, score tracking, collision detection and selectable skins.",
+  "defaultCaptions": {},
+  "assets": {
+    "favicon": {
+      "digest": "sha256:8f6fdd5fefdcb190e2c354cb7710e7bdf878878514936907b7d10330a6a62948",
+      "path": "share/8f6fdd5fefdcb190e2c354cb7710e7bdf878878514936907b7d10330a6a62948.png",
+      "mime": "image/png",
+      "width": 1920,
+      "height": 1920,
+      "sizeBytes": 4812742
+    }
+  }
+}

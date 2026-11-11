@@ -2,15 +2,15 @@
   "version": 1,
   "checks": [
     {
-      "kind": "scene",
-      "path": "res://test/test_suite.tscn",
-      "expect": "[game-generic-tests] PASS:",
+      "kind": "script",
+      "path": "res://scripts/pong_verification.gd",
+      "expect": "[pong-tests] PASS:",
       "profile": "source"
     },
     {
       "kind": "script",
-      "path": "res://tools/verify_exported_pack.gd",
-      "expect": "[exported-pack] PASS:",
+      "path": "res://scripts/pong_verification.gd",
+      "expect": "[pong-tests] PASS:",
       "profile": "pack"
     }
   ]

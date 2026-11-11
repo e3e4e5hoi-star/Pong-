@@ -1,13 +1,45 @@
 {
   "version": 2,
   "groups": {
+    "skins": {
+      "name": "Skins",
+      "order": 30
+    },
     "template": {
       "name": "Template",
       "order": 0
+    },
+    "ungrouped": {
+      "name": "Ungrouped",
+      "order": 20
     }
   },
   "bundles": {},
   "assets": {
+    "assets/fonts_Amiri-Regular.ttf": {
+      "path": "/manus-storage/game/sha256/316c56966b5ceb7ccd7f6fc490b3c3b31033523cfabd3d591395642c4b86ea62.ttf",
+      "sha256": "sha256:316c56966b5ceb7ccd7f6fc490b3c3b31033523cfabd3d591395642c4b86ea62",
+      "size": 627240,
+      "assetType": "font",
+      "groupId": "ungrouped",
+      "used": true
+    },
+    "assets/fonts_NotoSansArabic-Regular.ttf": {
+      "path": "/manus-storage/game/sha256/504d7407d86875acf7d04dfaa0fd7524d0b8797723bc4aa18022f29db25b0b6e.ttf",
+      "sha256": "sha256:504d7407d86875acf7d04dfaa0fd7524d0b8797723bc4aa18022f29db25b0b6e",
+      "size": 244072,
+      "assetType": "font",
+      "groupId": "ungrouped",
+      "used": false
+    },
+    "assets/skins/user_green_armor.png": {
+      "path": "/manus-storage/game/sha256/e890a465a427de677c7f1f25ad9b010c51e71a2c7c14cd91515bee129bc5b156.png",
+      "sha256": "sha256:e890a465a427de677c7f1f25ad9b010c51e71a2c7c14cd91515bee129bc5b156",
+      "size": 4829282,
+      "assetType": "image",
+      "groupId": "skins",
+      "used": true
+    },
     "assets/template/characters/runner.png": {
       "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/06/game-template/game-generic/2026.09.07-minimalist-v1/c88485773d6ff9361e036f37d8ac76fb77b8c3f7c041c3f52c8dd222adc8cc21/assets/characters/runner.png",
       "sha256": "sha256:c88485773d6ff9361e036f37d8ac76fb77b8c3f7c041c3f52c8dd222adc8cc21",
@@ -110,7 +142,7 @@
       "size": 473356,
       "assetType": "image",
       "groupId": "template",
-      "used": true
+      "used": false
     },
     "assets/template/ui/pause_glass.png": {
       "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/06/game-template/game-generic/2026.09.07-minimalist-v1/c88a4725838df85e72c7270865848f275b62c525c5679a2a8b7ecefb1af82d4b/assets/ui/pause_glass.png",
