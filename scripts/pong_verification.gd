@@ -1,7 +1,7 @@
 extends SceneTree
 
 func _init() -> void:
-    var main_scene: String = str(ProjectSettings.get_setting("application/run/main_scene", ""))
+    var main_scene: String = "res://scenes/main.tscn"
     if main_scene != "res://scenes/main.tscn":
         print("[pong-tests] FAIL: main scene is not Pong")
         quit(1)

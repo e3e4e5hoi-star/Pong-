@@ -8,22 +8,22 @@
   $GODOT_HEAD_INCLUDE
   <style>
     @font-face { font-family: "PongArabic"; font-style: normal; font-weight: 400; src: url("data:font/ttf;base64,") format("truetype"); }
-    :root { color-scheme: dark; font-family: system-ui, "Noto Sans Arabic", sans-serif; background: #07111f; color: #e8f1ff; }
+    :root { color-scheme: dark; font-family: system-ui, "Noto Sans Arabic", sans-serif; background: #040712; color: #e8f7ff; }
     * { box-sizing: border-box; }
-    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #07111f; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #040712; }
     #canvas { display: block; width: 100%; height: 100%; outline: none; }
-    #loading { position: fixed; inset: 0; display: grid; place-content: center; gap: 15px; padding: 24px; text-align: center; background: radial-gradient(circle at 75% 18%, #173d4f 0, #07111f 38%, #040a14 100%); }
+    #loading { position: fixed; inset: 0; display: grid; place-content: center; gap: 15px; padding: 24px; text-align: center; background: radial-gradient(circle at 78% 16%, #123b4b 0, #080d22 34%, #040712 72%, #02030a 100%); }
     #loading::before, #loading::after { content: ""; position: fixed; pointer-events: none; }
-    #loading::before { inset: 12%; border: 1px solid #61e8ff33; border-radius: 26px; box-shadow: 0 0 90px #61e8ff22 inset; }
-    #loading::after { width: 18px; height: 18px; border-radius: 50%; left: 12%; top: 24%; background: #61e8ff; box-shadow: 0 0 24px #61e8ff; }
+    #loading::before { inset: 10%; border: 1px solid #42f5ff44; border-radius: 26px; box-shadow: 0 0 90px #42f5ff22 inset, 0 0 40px #8b6cff18; }
+    #loading::after { width: 18px; height: 18px; border-radius: 50%; left: 12%; top: 24%; background: #ff4fb3; box-shadow: 0 0 24px #ff4fb3; }
     #loading[hidden], [hidden] { display: none; }
     #loading > * { position: relative; z-index: 1; }
-    .eyebrow { color: #61e8ff; font-size: 13px; letter-spacing: .22em; }
+    .eyebrow { color: #42f5ff; font-size: 13px; letter-spacing: .22em; }
     h1 { margin: 0; font-size: clamp(30px, 8vw, 64px); letter-spacing: .04em; }
-    p { margin: 0; color: #91a7c4; line-height: 1.7; }
-    progress { width: min(360px, 75vw); height: 10px; accent-color: #61e8ff; justify-self: center; }
-    button { justify-self: center; padding: 10px 24px; border: 1px solid #61e8ff88; border-radius: 10px; background: #10243a; color: #e8f1ff; cursor: pointer; font: inherit; }
-    button:hover { background: #183853; }
+    p { margin: 0; color: #8399bd; line-height: 1.7; }
+    progress { width: min(360px, 75vw); height: 10px; accent-color: #42f5ff; justify-self: center; filter: drop-shadow(0 0 8px #42f5ff88); }
+    button { justify-self: center; padding: 10px 24px; border: 1px solid #42f5ff88; border-radius: 10px; background: #0a1226; color: #e8f7ff; cursor: pointer; font: inherit; box-shadow: 0 0 18px #42f5ff18; }
+    button:hover { background: #172c4d; border-color: #ff4fb3; }
     @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
   </style>
 </head>

@@ -3,7 +3,7 @@
   "engineVersion": "4.7.2.stable.official.ed1daf0bf",
   "inputs": {
     "objectFormat": "sha1",
-    "tree": "4975b5f7c4c0a613d6cfe3c207daad9aa4e36428",
+    "tree": "50306d4d32f09de7e0880683724cba79b5d5e052",
     "entries": [
       {
         "path": ".gitignore",
@@ -549,7 +549,7 @@
         "path": "scripts/main.gd",
         "type": "file",
         "mode": "100644",
-        "object": "7fd88f263b68c5d972194469ad25830baf2a96f0"
+        "object": "79b9b9f0e3454a4ad6cd4c17a983a3bb70712658"
       },
       {
         "path": "scripts/main.gd.uid",
@@ -651,7 +651,7 @@
         "path": "scripts/pong_verification.gd",
         "type": "file",
         "mode": "100644",
-        "object": "9cd3a38f3f7673cbb94d07ea8d25b7a01b885fca"
+        "object": "e009676cc3f59c7c350aff15acfb350da5238e0a"
       },
       {
         "path": "scripts/pong_verification.gd.uid",
@@ -903,12 +903,12 @@
         "path": "web/loading.html",
         "type": "file",
         "mode": "100644",
-        "object": "934f5718186011c446db091c991314a2c49776d2"
+        "object": "438a30e9696adeed831fc069218d4c933b391880"
       }
     ]
   },
   "build": {
-    "snapshotId": "sha256:178d723c42bda094c321cc8baa6a960b670073b1befe125106c342fc3a87c2dc",
+    "snapshotId": "sha256:2943b1dc9ea5714634b54b0cc1f822a31b002d97e4d977b99c561903801d6589",
     "toolchain": {
       "engineVersion": "4.7.2.stable.official.ed1daf0bf",
       "engineDigest": "sha256:8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
@@ -921,21 +921,21 @@
     "profile": "release",
     "export": {
       "profile": "release",
-      "snapshotId": "sha256:178d723c42bda094c321cc8baa6a960b670073b1befe125106c342fc3a87c2dc",
+      "snapshotId": "sha256:2943b1dc9ea5714634b54b0cc1f822a31b002d97e4d977b99c561903801d6589",
       "files": {
         "THIRD_PARTY_NOTICES.txt": "sha256:c729a77bf07eb9745b2d89c3ce4ead3357438366f41743d2755ae35f98509cf9",
         "index.apple-touch-icon.png": "sha256:bf8c3fc738f0d8303d08412fed4b8b784425dda44bace3d8699df9183ded3297",
         "index.audio.position.worklet.js": "sha256:be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
         "index.audio.worklet.js": "sha256:5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
-        "index.html": "sha256:5391e4d652fc4242a67bfea172f50503da4612573461d1fa832e1348c1bd1af5",
+        "index.html": "sha256:888db4c1b1ad6da9ed86eaa7de30b15fff339c5359357606f7960300f1da8421",
         "index.icon.png": "sha256:8f6fdd5fefdcb190e2c354cb7710e7bdf878878514936907b7d10330a6a62948",
         "index.js": "sha256:cb28c2d8ffd8981888823f1b6d98cdec4e3e11adf209ad556c22878e6d51c63a",
-        "index.pck": "sha256:6b6504805eb3d8fc6398b0b33df175ee2ba6fe82bee4808a6fb45500c4a6aab9",
+        "index.pck": "sha256:9bdd20f5940354ea174a2d429c9ea57cfb23e3a66492d06cc7f17f6071f54876",
         "index.png": "sha256:3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
         "index.wasm": "sha256:fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
         "open-source-licenses.html": "sha256:9215f5fdd50039a9b6f3d8f0271cbc21bbdf64b917fb118dd29c8a16b9974e00"
       },
-      "digest": "sha256:61fe9e46ac228c4c2a48b0dfc8fd09d79c6f4c4d51f57e65002ac47822ae7572"
+      "digest": "sha256:f7d4a7dbb148c7423bdd7a41f20242a11a51ae1ec8d77fa9033ff76ad409bb37"
     }
   },
   "artifacts": {
@@ -944,8 +944,8 @@
       "sha256": "sha256:fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
     },
     "pck": {
-      "path": "/manus-storage/game/sha256/6b6504805eb3d8fc6398b0b33df175ee2ba6fe82bee4808a6fb45500c4a6aab9.pck",
-      "sha256": "sha256:6b6504805eb3d8fc6398b0b33df175ee2ba6fe82bee4808a6fb45500c4a6aab9"
+      "path": "/manus-storage/game/sha256/9bdd20f5940354ea174a2d429c9ea57cfb23e3a66492d06cc7f17f6071f54876.pck",
+      "sha256": "sha256:9bdd20f5940354ea174a2d429c9ea57cfb23e3a66492d06cc7f17f6071f54876"
     }
   },
   "files": {
@@ -954,7 +954,7 @@
     "index.apple-touch-icon.png": "sha256:bf8c3fc738f0d8303d08412fed4b8b784425dda44bace3d8699df9183ded3297",
     "index.audio.position.worklet.js": "sha256:be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
     "index.audio.worklet.js": "sha256:5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
-    "index.html": "sha256:c15d265f9f4002aa673ca7c31d35d8093e9f8355e557382a39d181aa1081d715",
+    "index.html": "sha256:90b91727cba79002d4529f3f6f88a29d93ef2d207e5da2aa854c8c0389c1e4d5",
     "index.icon.png": "sha256:8f6fdd5fefdcb190e2c354cb7710e7bdf878878514936907b7d10330a6a62948",
     "index.js": "sha256:cb28c2d8ffd8981888823f1b6d98cdec4e3e11adf209ad556c22878e6d51c63a",
     "index.png": "sha256:3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",

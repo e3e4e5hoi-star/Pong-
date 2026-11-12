@@ -9,16 +9,17 @@ const PADDLE_W := 18.0
 const PADDLE_H := 128.0
 const BALL_RADIUS := 10.0
 
-const BG := Color("07111f")
-const PANEL := Color("0d1b2b")
-const COURT := Color("0a1728")
-const INK := Color("e8f1ff")
-const MUTED := Color("91a7c4")
-const CYAN := Color("61e8ff")
-const GREEN := Color("64f59c")
-const MAGENTA := Color("ff6fae")
-const GOLD := Color("ffd166")
-const RED := Color("ff7895")
+const BG := Color("040712")
+const PANEL := Color("0a1226")
+const COURT := Color("071126")
+const INK := Color("e8f7ff")
+const MUTED := Color("8399bd")
+const CYAN := Color("42f5ff")
+const GREEN := Color("9dff6e")
+const MAGENTA := Color("ff4fb3")
+const GOLD := Color("ffdc70")
+const RED := Color("ff6b8e")
+const VIOLET := Color("8b6cff")
 
 var player_y := 0.0
 var cpu_y := 0.0
@@ -34,6 +35,7 @@ var mouse_y := 0.0
 var mouse_active := false
 var rng := RandomNumberGenerator.new()
 var user_skin: Texture2D
+var fx_time := 0.0
 
 var title_label: Label
 var subtitle_label: Label
@@ -72,6 +74,7 @@ func _notification(what: int) -> void:
         queue_redraw()
 
 func _process(delta: float) -> void:
+    fx_time += delta
     if started and not paused and not game_over:
         _update_player(delta)
         _update_cpu(delta)
@@ -198,7 +201,9 @@ func _button_box(fill: Color, border: Color) -> StyleBoxFlat:
     box.bg_color = fill
     box.border_color = border
     box.set_border_width_all(1)
-    box.set_corner_radius_all(10)
+    box.set_corner_radius_all(12)
+    box.shadow_color = Color(border, 0.18)
+    box.shadow_size = 7
     box.content_margin_left = 14
     box.content_margin_right = 14
     box.content_margin_top = 8
@@ -391,22 +396,43 @@ func _set_skin(skin: String) -> void:
 func _draw() -> void:
     var court := _court_rect()
     draw_rect(Rect2(Vector2.ZERO, size), BG)
-    draw_circle(Vector2(size.x * 0.86, size.y * 0.20), 230.0, Color(0.11, 0.29, 0.38, 0.18))
-    draw_circle(Vector2(size.x * 0.12, size.y * 0.82), 190.0, Color(0.31, 0.13, 0.32, 0.14))
+    var pulse := 0.5 + sin(fx_time * 2.2) * 0.5
+    draw_circle(Vector2(size.x * 0.86, size.y * 0.16), 290.0, Color(CYAN, 0.035 + pulse * 0.018))
+    draw_circle(Vector2(size.x * 0.10, size.y * 0.84), 260.0, Color(VIOLET, 0.045 + pulse * 0.018))
+    draw_circle(Vector2(size.x * 0.52, size.y * 0.52), 390.0, Color(MAGENTA, 0.012))
+    for y in range(0, int(size.y), 6):
+        draw_line(Vector2(0, y), Vector2(size.x, y), Color(INK, 0.012), 1.0)
+    var scan_y := fmod(fx_time * 42.0, maxf(1.0, size.y))
+    draw_line(Vector2(0, scan_y), Vector2(size.x, scan_y), Color(CYAN, 0.045), 1.0)
 
-    draw_rect(Rect2(Vector2(24, 16), Vector2(size.x - 48, 118)), Color(PANEL, 0.86), true)
-    draw_line(Vector2(24, 132), Vector2(size.x - 24, 132), Color(CYAN, 0.22), 1.0)
+    var header := Rect2(Vector2(24, 16), Vector2(size.x - 48, 146))
+    draw_rect(header.grow(5), Color(CYAN, 0.025), true)
+    draw_rect(header, Color(PANEL, 0.94), true)
+    draw_rect(header, Color(CYAN, 0.22), false, 1.0)
+    draw_line(Vector2(24, 162), Vector2(size.x - 24, 162), Color(CYAN, 0.48), 1.0)
+    draw_line(Vector2(24, 164), Vector2(size.x - 24, 164), Color(MAGENTA, 0.12), 1.0)
+    draw_line(Vector2(40, 28), Vector2(160, 28), Color(MAGENTA, 0.7), 2.0)
+    draw_line(Vector2(size.x - 160, 28), Vector2(size.x - 40, 28), Color(GREEN, 0.7), 2.0)
+
     draw_rect(court, COURT, true)
-    draw_rect(court, Color(CYAN, 0.36), false, 2.0)
-    draw_line(Vector2(court.get_center().x, court.position.y + 18), Vector2(court.get_center().x, court.end.y - 18), Color(CYAN, 0.20), 2.0)
+    draw_rect(court.grow(8), Color(CYAN, 0.025), false, 8.0)
+    draw_rect(court.grow(3), Color(MAGENTA, 0.12), false, 2.0)
+    draw_rect(court, Color(CYAN, 0.62), false, 2.0)
+    for x in range(int(court.position.x + 20.0), int(court.end.x - 20.0), 64):
+        draw_line(Vector2(x, court.position.y), Vector2(x, court.end.y), Color(CYAN, 0.035), 1.0)
+    for y in range(int(court.position.y + 20.0), int(court.end.y - 20.0), 42):
+        draw_line(Vector2(court.position.x, y), Vector2(court.end.x, y), Color(CYAN, 0.03), 1.0)
+    draw_line(Vector2(court.get_center().x, court.position.y + 18), Vector2(court.get_center().x, court.end.y - 18), Color(CYAN, 0.26), 2.0)
     for y in range(int(court.position.y + 16.0), int(court.end.y - 16.0), 34):
-        draw_rect(Rect2(court.get_center().x - 2, y, 4, 17), Color(INK, 0.34), true)
+        draw_rect(Rect2(court.get_center().x - 2, y, 4, 17), Color(INK, 0.48), true)
+    _draw_corner_brackets(court)
 
     var player_rect := Rect2(Vector2(court.position.x + 38.0, player_y - PADDLE_H * 0.5), Vector2(PADDLE_W, PADDLE_H))
     var cpu_rect := Rect2(Vector2(court.end.x - 56.0, cpu_y - PADDLE_H * 0.5), Vector2(PADDLE_W, PADDLE_H))
     _draw_player_paddle(player_rect)
     _draw_cpu_paddle(cpu_rect)
-    draw_circle(ball, BALL_RADIUS + 8.0, Color(CYAN, 0.10))
+    draw_circle(ball, BALL_RADIUS + 18.0, Color(CYAN, 0.045))
+    draw_circle(ball, BALL_RADIUS + 9.0, Color(CYAN, 0.18))
     draw_circle(ball, BALL_RADIUS, INK)
     draw_circle(ball, BALL_RADIUS * 0.42, CYAN)
     if not started:
@@ -418,13 +444,15 @@ func _draw() -> void:
 
 func _draw_player_paddle(rect: Rect2) -> void:
     if selected_skin == "armor" and user_skin != null:
-        draw_rect(rect.grow(5), Color(GREEN, 0.18), true)
+        draw_rect(rect.grow(12), Color(GREEN, 0.045), true)
+        draw_rect(rect.grow(6), Color(GREEN, 0.18), true)
         draw_texture_rect(user_skin, Rect2(rect.position.x - 30.0, rect.position.y + 4.0, 78.0, 118.0), false)
         draw_rect(rect, Color("2d8d62"), true)
-        draw_line(rect.position + Vector2(2, 8), rect.end - Vector2(2, 8), Color("a9ffd0"), 2.0)
+        draw_line(rect.position + Vector2(2, 8), rect.end - Vector2(2, 8), Color("d7ffb4"), 2.0)
     else:
         var pixel := Color("5fe4ff")
-        draw_rect(rect.grow(5), Color(pixel, 0.16), true)
+        draw_rect(rect.grow(12), Color(pixel, 0.045), true)
+        draw_rect(rect.grow(5), Color(pixel, 0.18), true)
         draw_rect(Rect2(rect.position + Vector2(-6, 0), Vector2(rect.size.x + 12, 20)), pixel, true)
         draw_rect(Rect2(rect.position + Vector2(-3, 20), Vector2(rect.size.x + 6, rect.size.y - 40)), Color("17708d"), true)
         draw_rect(Rect2(rect.position + Vector2(-6, rect.size.y - 20), Vector2(rect.size.x + 12, 20)), pixel, true)
@@ -432,8 +460,21 @@ func _draw_player_paddle(rect: Rect2) -> void:
         draw_rect(Rect2(rect.position + Vector2(4, rect.size.y - 15), Vector2(5, 8)), Color.WHITE, true)
 
 func _draw_cpu_paddle(rect: Rect2) -> void:
-    draw_rect(rect.grow(5), Color(MAGENTA, 0.15), true)
+    draw_rect(rect.grow(12), Color(MAGENTA, 0.045), true)
+    draw_rect(rect.grow(5), Color(MAGENTA, 0.18), true)
     draw_rect(rect, Color("d94a78"), true)
     draw_rect(Rect2(rect.position + Vector2(-5, 8), Vector2(rect.size.x + 10, 22)), MAGENTA, true)
     draw_rect(Rect2(rect.position + Vector2(-5, rect.size.y - 30), Vector2(rect.size.x + 10, 22)), MAGENTA, true)
     draw_line(rect.position + Vector2(4, 30), rect.end - Vector2(4, 30), Color("ffb1c8"), 2.0)
+
+func _draw_corner_brackets(rect: Rect2) -> void:
+    var c := Color(CYAN, 0.65)
+    var length := 18.0
+    draw_line(rect.position, rect.position + Vector2(length, 0), c, 2.0)
+    draw_line(rect.position, rect.position + Vector2(0, length), c, 2.0)
+    draw_line(Vector2(rect.end.x, rect.position.y), rect.end - Vector2(length, rect.size.y), c, 2.0)
+    draw_line(Vector2(rect.end.x, rect.position.y), Vector2(rect.end.x, rect.position.y + length), c, 2.0)
+    draw_line(Vector2(rect.position.x, rect.end.y), Vector2(rect.position.x + length, rect.end.y), c, 2.0)
+    draw_line(Vector2(rect.position.x, rect.end.y), Vector2(rect.position.x, rect.end.y - length), c, 2.0)
+    draw_line(rect.end, rect.end - Vector2(length, 0), c, 2.0)
+    draw_line(rect.end, rect.end - Vector2(0, length), c, 2.0)
